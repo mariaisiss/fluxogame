@@ -833,7 +833,7 @@
       "ctor": "Float64Array",
       "array": [
         17.021,
-        -362.55,
+        -403.55,
         0,
         0,
         0,
@@ -859,7 +859,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "New Sprite",
     "_objFlags": 0,
     "_parent": {
       "__id__": 17
@@ -875,27 +875,27 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 242.04,
-      "height": 50.4
+      "width": 405,
+      "height": 141
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.5065522381864783,
+      "y": 0.506807072633323
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -5.867,
-        -1.982,
+        4,
+        5,
         0,
         0,
         0,
@@ -917,10 +917,10 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "2apqLPIRVOsqb1qExBfef7"
+    "_id": "3e/Ch471xK96SWFJZXj4A/"
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -934,23 +934,22 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Créditos",
-    "_N$string": "Créditos",
-    "_fontSize": 65,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": "5ceCSH2X5HgJlss1r7qehT"
+    "_spriteFrame": {
+      "__uuid__": "5572d191-12d2-4ec8-9713-9c4e8e2e5397"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": "46MXaZMZdCZ4U89WgtWDbG"
   },
   {
     "__type__": "cc.Node",
