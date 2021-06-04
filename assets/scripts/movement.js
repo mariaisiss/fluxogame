@@ -9,7 +9,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-            active: false
     },
 
     // LIFE-CYCLE CALLBACKS:

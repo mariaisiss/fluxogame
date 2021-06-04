@@ -11,19 +11,23 @@ cc.Class({
     properties: {
         coagulo1: {
             default: null,
-            type: cc.Node,
+            type: cc.Prefab,
         },
         coagulo2: {
             default: null,
-            type: cc.Node,
+            type: cc.Prefab,
         },
         blood1: {
             default: null,
-            type: cc.Node,
+            type: cc.Prefab,
         },
         blood2: {
             default: null,
-            type: cc.Node,
+            type: cc.Prefab,
+        },
+        colector: {
+            default: null,
+            type: cc.Node
         },
         life1: {
             default: null,
@@ -48,11 +52,24 @@ cc.Class({
         goals: {
             default: 15,
             type: Number
+        },
+        timer: {
+            default: 0,
+            type: cc.Integer
+        },
+        active: {
+            default: true,
+            type: Boolean
+        },
+        typeNum: {
+            default: 1,
+            type: Number
+        },
+        decrease: {
+            default: false,
+            type: Boolean
         }
     },
-
-    timer: Number,
-    active: Boolean,
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -64,13 +81,10 @@ cc.Class({
     },
 
     start () {
-        timer = 0;
-        active = true;
     },
 
     update (dt) {
-        timer++;
-        console.log(this.goals)
+        this.timer++;
         
         switch(this.lifes) {
             case 2:
@@ -85,46 +99,55 @@ cc.Class({
         }
 
         if (this.lifes <= 0) {
-            active = false;
+            this.active = false;
             this.youlose.opacity = 255
         }
 
         if (this.goals <= 0) {
-            active = false;
+            this.active = false;
             cc.director.loadScene("finished1");
         }
     
-        if (timer > 100 && active) {
-            var t = between(1,4);
-            var node = cc.instantiate(this.coagulo1);
+        if (this.timer > 100 && this.active) {
+            var corb = cc.instantiate(this.coagulo1);
+            
+            if (this.typeNum == 4) {
+                this.decrease = true;
+            } else if (this.typeNum == 1) {
+                this.decrease = false;
+            }
 
-            switch (t) {
+            switch (this.typeNum) {
                 case 2:
-                    node = cc.instantiate(this.coagulo2);
+                    corb = cc.instantiate(this.coagulo2);
                     break;
                 case 3:
-                    node = cc.instantiate(this.blood1);
+                    corb = cc.instantiate(this.blood1);
                     break;
                 case 4:
-                    node = cc.instantiate(this.blood2);
+                    corb = cc.instantiate(this.blood2);
                     break;
             }
 
-            timer -= 100;
+            corb.parent = this.colector.parent;
+            corb.width = 170;
+            corb.height = 170;
+            let xPosition = 0;
+            console.log(this.colector.x);
+            console.log((480 - this.colector.x) < (this.colector.x + 480));
+            if ((480 - this.colector.x) < (this.colector.x + 480)) {
+                xPosition = this.colector.x - 190;
+            } else {
+                xPosition = this.colector.x + 190;
+            }
+            corb.setPosition(xPosition, 1100);
 
-            var scene = cc.director.getScene();
-
-            node.parent = scene;
-            node.width = 170;
-            node.height = 170;
-            let xNode = between(100, 800);
-            node.setPosition(xNode,1100);
+            this.timer -= 100;
+            if (this.decrease) {
+                this.typeNum--;
+            } else {
+                this.typeNum++;
+            }
         }
     }, 
 });
-
-function between(min, max) {  
-    return Math.floor(
-      Math.random() * (max - min + 1) + min
-    )
-  }

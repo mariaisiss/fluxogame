@@ -5,8 +5,6 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-var game = require("gamecontrol");
-
 cc.Class({
     extends: cc.Component,
 

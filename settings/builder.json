@@ -1,7 +1,7 @@
 {
   "title": "fluxogame",
   "packageName": "org.cocos2d.demo",
-  "startScene": "793d6263-bafd-46c2-8052-09ad769ab911",
+  "startScene": "06d34aeb-feab-4ef5-83b7-73096a5b3828",
   "excludeScenes": [],
   "orientation": {
     "landscapeRight": false,
